@@ -1,0 +1,17 @@
+on load:
+    # コインアイテムを定義
+    set {coin} to gold nugget named "§6コイン" with lore "§7価値のある通貨"
+
+on craft:
+    if recipe is coin_recipe:
+        give 12 of {coin} to player
+        cancel event
+
+# レシピ登録
+on load:
+    register new shaped recipe "coin_recipe" for {coin} using:
+    - "   "
+    - " G "
+    - "   "
+    where:
+    G = gold ingot
