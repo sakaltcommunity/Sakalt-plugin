@@ -1,0 +1,27 @@
+on load:
+    # ファイアソードを定義
+    set {fire_sword} to diamond sword named "§cファイアソード" with lore "§6攻撃力: 9" and "§7炎の剣" with nbt "{CustomModelData:1}"
+
+on right click with {fire_sword}:
+    # 剣を右クリックで炎を付ける
+    ignite target block for 5 seconds
+
+on damage:
+    if attacker's tool is {fire_sword}:
+        # ファイアソードを使った場合、相手を燃やす
+        set the victim on fire for 4 seconds
+
+# 耐久値を設定（攻撃時に減少）
+on damage:
+    if attacker's tool is {fire_sword}:
+        damage attacker's tool by 1
+
+# クラフトレシピ
+on load:
+    register new shaped recipe "fire_sword_recipe" for {fire_sword} using:
+    - "FFF"
+    - " S "
+    - " S "
+    where:
+    F = blaze powder
+    S = stick
