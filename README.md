@@ -1,0 +1,2 @@
+# Sakalt-plugin
+サーバープラグイン
